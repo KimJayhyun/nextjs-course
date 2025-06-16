@@ -1,7 +1,9 @@
 import classes from "./page.module.css";
+import Image from "next/image";
+import { getMeal } from "@/lib/meals";
 
-export default function MealDetailsPage({ params }) {
-  const meal = getMeal(params.mealSlug);
+export default async function MealDetailsPage({ params }) {
+  const meal = await getMeal(params.mealSlug);
 
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
 
